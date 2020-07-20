@@ -1,9 +1,9 @@
-function computerPlay(){
+function computerPlay() {
     let randomNumber = Math.floor(Math.random() * 3);
-    if (randomNumber == 0){
+    if (randomNumber == 0) {
         return 'rock'
     }
-    else if (randomNumber == 1){
+    else if (randomNumber == 1) {
         return 'paper'
     }
     else if (randomNumber == 2) {
@@ -15,7 +15,7 @@ function computerPlay(){
 }
 
 function playRound(playerSelection, computerSelection) {
-	if (playerSelection == 'rock' &&  computerSelection == 'scissors' || playerSelection == 'paper' &&  computerSelection == 'rock' || playerSelection == 'scissors' &&  computerSelection == 'paper'){
+	if (playerSelection == 'rock' &&  computerSelection == 'scissors' || playerSelection == 'paper' &&  computerSelection == 'rock' || playerSelection == 'scissors' &&  computerSelection == 'paper') {
         return 'You won!'
     }
     else if (playerSelection == 'rock' &&  computerSelection == 'paper' || playerSelection == 'paper' &&  computerSelection == 'scissors' || playerSelection == 'scissors' &&  computerSelection == 'rock') {
@@ -29,6 +29,12 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-const playerSelection = prompt('Type Rock, Paper or Scissors:').toLowerCase()
-const computerSelection = computerPlay()
-console.log(playRound(playerSelection, computerSelection))
+function game() {
+    for (i = 0; i < 5; i++) {
+        const playerSelection = prompt('Type Rock, Paper or Scissors:').toLowerCase()
+        const computerSelection = computerPlay()
+        console.log(playRound(playerSelection, computerSelection))
+    }
+}
+
+game()
