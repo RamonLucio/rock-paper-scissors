@@ -6,3 +6,12 @@ img {
 #images-div {
     text-align: center;
 }
+
+#buttons-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.button {
+    flex-grow: 1;
+}
