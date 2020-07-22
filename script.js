@@ -35,25 +35,23 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-// function game() {
-//     for (i = 0; i < 5; i++) {
-//         const playerSelection = prompt('Type Rock, Paper or Scissors:').toLowerCase()
-//         const computerSelection = computerPlay()
-//         console.log(playRound(playerSelection, computerSelection))
-//     }
-//     console.log(`Your score: ${playerScore}\nComputer score: ${computerScore}`)
-// }
-let playerScore = 0;
-let computerScore = 0;
-
-// game()
-
 const buttons = document.querySelectorAll('button');
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         let playerSelection = button.id;
         let computerSelection = computerPlay();
-        console.log(playRound(playerSelection, computerSelection));
+        let computerChoice = document.querySelector('#computer-choice');
+        let playerChoice = document.querySelector('#player-choice');
+        let results = document.querySelector('#results-div');
+        computerChoice.textContent = `Computer: ${computerSelection.toUpperCase()}`;
+        playerChoice.textContent = `You: ${playerSelection.toUpperCase()}`;
+        results.textContent = (playRound(playerSelection, computerSelection));
+        playerRunningScore.textContent = `Your score: ${playerScore}`;
+        computerRunningScore.textContent = `Computer score: ${computerScore}`;
     });
-  });
-  
+});
+
+let playerScore = 0;
+let computerScore = 0;
+const playerRunningScore = document.querySelector('#player-score');
+const computerRunningScore = document.querySelector('#computer-score');
