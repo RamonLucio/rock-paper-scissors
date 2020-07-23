@@ -18,27 +18,30 @@ function playRound(playerSelection, computerSelection) {
     result.classList.remove('victory');
     result.classList.remove('defeat');
     result.classList.remove('draw');
-    if (playerSelection == 'rock' &&  computerSelection == 'scissors' ||
-    playerSelection == 'paper' &&  computerSelection == 'rock' ||
-    playerSelection == 'scissors' &&  computerSelection == 'paper') {
-        playerScore++;
-        result.classList.add('victory');
-        return 'You won!'
+    while (computerScore < 5 && playerScore < 5) {
+        if (playerSelection == 'rock' &&  computerSelection == 'scissors' ||
+        playerSelection == 'paper' &&  computerSelection == 'rock' ||
+        playerSelection == 'scissors' &&  computerSelection == 'paper') {
+            playerScore++;
+            result.classList.add('victory');
+            return 'You won!'
+        }
+        else if (playerSelection == 'rock' &&  computerSelection == 'paper' ||
+        playerSelection == 'paper' &&  computerSelection == 'scissors' ||
+        playerSelection == 'scissors' &&  computerSelection == 'rock') {
+            computerScore++;
+            result.classList.add('defeat');
+            return 'You lose!'
+        }
+        else if (playerSelection == computerSelection) {
+            result.classList.add('draw');
+            return 'Draw!'
+        }
+        else {
+            return 'Something went wrong! Please try again'
+        }
     }
-    else if (playerSelection == 'rock' &&  computerSelection == 'paper' ||
-    playerSelection == 'paper' &&  computerSelection == 'scissors' ||
-    playerSelection == 'scissors' &&  computerSelection == 'rock') {
-        computerScore++;
-        result.classList.add('defeat');
-        return 'You lose!'
-    }
-    else if (playerSelection == computerSelection) {
-        result.classList.add('draw');
-        return 'Draw!'
-    }
-    else {
-        return 'Something went wrong! Please try again'
-    }
+    return 'Refresh the page to play again'
 }
 
 const buttons = document.querySelectorAll('button');
