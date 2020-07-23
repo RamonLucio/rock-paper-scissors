@@ -43,11 +43,27 @@ buttons.forEach((button) => {
         let computerChoice = document.querySelector('#computer-choice');
         let playerChoice = document.querySelector('#player-choice');
         let results = document.querySelector('#results-div');
-        computerChoice.textContent = `Computer: ${computerSelection.toUpperCase()}`;
-        playerChoice.textContent = `You: ${playerSelection.toUpperCase()}`;
-        results.textContent = (playRound(playerSelection, computerSelection));
-        playerRunningScore.textContent = `Your score: ${playerScore}`;
-        computerRunningScore.textContent = `Computer score: ${computerScore}`;
+        if (playerSelection == 'rock') {
+            playerChoice.setAttribute('src', 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Rock-paper-scissors_%28rock%29.png');
+        }
+            if (playerSelection == 'paper') {
+                playerChoice.setAttribute('src', 'https://upload.wikimedia.org/wikipedia/commons/a/af/Rock-paper-scissors_%28paper%29.png')
+            }
+                if (playerSelection == 'scissors') {
+                    playerChoice.setAttribute('src', 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Rock-paper-scissors_%28scissors%29.png')
+                }
+        if (computerSelection == 'rock') {
+            computerChoice.setAttribute('src', 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Rock-paper-scissors_%28rock%29.png');
+        }
+            if (computerSelection == 'paper') {
+                computerChoice.setAttribute('src', 'https://upload.wikimedia.org/wikipedia/commons/a/af/Rock-paper-scissors_%28paper%29.png')
+            }
+                if (computerSelection == 'scissors') {
+                    computerChoice.setAttribute('src', 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Rock-paper-scissors_%28scissors%29.png')
+                }
+        // results.textContent = (playRound(playerSelection, computerSelection));
+        // playerRunningScore.textContent = `Your score: ${playerScore}`;
+        // computerRunningScore.textContent = `Computer score: ${computerScore}`;
     });
 });
 
