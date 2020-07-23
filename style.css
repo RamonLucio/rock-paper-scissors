@@ -19,3 +19,23 @@ img {
 .flip {
     transform: scaleX(-1);
 }
+
+#results-div{
+    display: inline-block;
+    vertical-align:top;
+}
+
+.victory {
+    color: white;
+    background-color: green;
+}
+
+.defeat {
+    color: white;
+    background-color: red;
+}
+
+.draw {
+    color: purple;
+    background-color: yellow;
+}

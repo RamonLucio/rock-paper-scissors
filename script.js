@@ -15,20 +15,26 @@ function computerPlay() {
 }
 
 function playRound(playerSelection, computerSelection) {
+    result.classList.remove('victory');
+    result.classList.remove('defeat');
+    result.classList.remove('draw');
     if (playerSelection == 'rock' &&  computerSelection == 'scissors' ||
     playerSelection == 'paper' &&  computerSelection == 'rock' ||
     playerSelection == 'scissors' &&  computerSelection == 'paper') {
         playerScore++;
-        return 'https://image.shutterstock.com/image-vector/vector-illustration-icon-concept-mail-600w-1211251045.jpg'
+        result.classList.add('victory');
+        return 'You won!'
     }
     else if (playerSelection == 'rock' &&  computerSelection == 'paper' ||
     playerSelection == 'paper' &&  computerSelection == 'scissors' ||
     playerSelection == 'scissors' &&  computerSelection == 'rock') {
         computerScore++;
-        return 'https://image.shutterstock.com/image-vector/you-lose-comic-speech-bubble-600w-449380606.jpg'
+        result.classList.add('defeat');
+        return 'You lose!'
     }
     else if (playerSelection == computerSelection) {
-        return 'https://image.shutterstock.com/image-vector/continuous-line-drawing-handshake-600w-730413616.jpg'
+        result.classList.add('draw');
+        return 'Draw!'
     }
     else {
         return 'Something went wrong! Please try again'
@@ -42,8 +48,6 @@ buttons.forEach((button) => {
         let computerSelection = computerPlay();
         let playerChoice = document.querySelector('#player-choice');
         let computerChoice = document.querySelector('#computer-choice');
-        computerChoice.classList.add('flip');
-        let results = document.querySelector('#result-img');
         if (playerSelection == 'rock') {
             playerChoice.setAttribute('src', 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Rock-paper-scissors_%28rock%29.png');
         }
@@ -62,13 +66,14 @@ buttons.forEach((button) => {
                 if (computerSelection == 'scissors') {
                     computerChoice.setAttribute('src', 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Rock-paper-scissors_%28scissors%29.png')
                 }
-        results.setAttribute('src', playRound(playerSelection, computerSelection));
-        // playerRunningScore.textContent = `Your score: ${playerScore}`;
-        // computerRunningScore.textContent = `Computer score: ${computerScore}`;
+        result.textContent = playRound(playerSelection, computerSelection);
+        playerRunningScore.textContent = `Your score: ${playerScore}`;
+        computerRunningScore.textContent = `Computer score: ${computerScore}`;
     });
 });
 
 let playerScore = 0;
 let computerScore = 0;
+const result = document.querySelector('#result-p');
 const playerRunningScore = document.querySelector('#player-score');
-const computerRunningScore = document.querySelector('#computer-score');
+const computerRunningScore = document.querySelector('#computer-score')
