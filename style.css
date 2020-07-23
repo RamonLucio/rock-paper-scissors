@@ -1,10 +1,10 @@
+.images-div {
+    text-align: center;
+}
+
 img {
     max-width: 30%;
     height: auto;
-}
-
-#images-div {
-    text-align: center;
 }
 
 #buttons-container {
@@ -14,10 +14,6 @@ img {
 
 .button {
     flex-grow: 1;
-}
-
-#container {
-    display: flex;
 }
 
 .flip {

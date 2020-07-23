@@ -19,16 +19,16 @@ function playRound(playerSelection, computerSelection) {
     playerSelection == 'paper' &&  computerSelection == 'rock' ||
     playerSelection == 'scissors' &&  computerSelection == 'paper') {
         playerScore++;
-        return 'You won!'
+        return 'https://image.shutterstock.com/image-vector/vector-illustration-icon-concept-mail-600w-1211251045.jpg'
     }
     else if (playerSelection == 'rock' &&  computerSelection == 'paper' ||
     playerSelection == 'paper' &&  computerSelection == 'scissors' ||
     playerSelection == 'scissors' &&  computerSelection == 'rock') {
         computerScore++;
-        return 'You lose!'
+        return 'https://image.shutterstock.com/image-vector/you-lose-comic-speech-bubble-600w-449380606.jpg'
     }
     else if (playerSelection == computerSelection) {
-        return 'Draw!'
+        return 'https://image.shutterstock.com/image-vector/continuous-line-drawing-handshake-600w-730413616.jpg'
     }
     else {
         return 'Something went wrong! Please try again'
@@ -43,7 +43,7 @@ buttons.forEach((button) => {
         let playerChoice = document.querySelector('#player-choice');
         let computerChoice = document.querySelector('#computer-choice');
         computerChoice.classList.add('flip');
-        let results = document.querySelector('#results-div');
+        let results = document.querySelector('#result-img');
         if (playerSelection == 'rock') {
             playerChoice.setAttribute('src', 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Rock-paper-scissors_%28rock%29.png');
         }
@@ -62,7 +62,7 @@ buttons.forEach((button) => {
                 if (computerSelection == 'scissors') {
                     computerChoice.setAttribute('src', 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Rock-paper-scissors_%28scissors%29.png')
                 }
-        results.textContent = (playRound(playerSelection, computerSelection));
+        results.setAttribute('src', playRound(playerSelection, computerSelection));
         // playerRunningScore.textContent = `Your score: ${playerScore}`;
         // computerRunningScore.textContent = `Computer score: ${computerScore}`;
     });
