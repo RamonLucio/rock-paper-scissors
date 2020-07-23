@@ -15,3 +15,11 @@ img {
 .button {
     flex-grow: 1;
 }
+
+#container {
+    display: flex;
+}
+
+.flip {
+    transform: scaleX(-1);
+}

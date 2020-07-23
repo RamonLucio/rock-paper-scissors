@@ -40,8 +40,9 @@ buttons.forEach((button) => {
     button.addEventListener('click', () => {
         let playerSelection = button.id;
         let computerSelection = computerPlay();
-        let computerChoice = document.querySelector('#computer-choice');
         let playerChoice = document.querySelector('#player-choice');
+        let computerChoice = document.querySelector('#computer-choice');
+        computerChoice.classList.add('flip');
         let results = document.querySelector('#results-div');
         if (playerSelection == 'rock') {
             playerChoice.setAttribute('src', 'https://upload.wikimedia.org/wikipedia/commons/7/7e/Rock-paper-scissors_%28rock%29.png');
@@ -61,7 +62,7 @@ buttons.forEach((button) => {
                 if (computerSelection == 'scissors') {
                     computerChoice.setAttribute('src', 'https://upload.wikimedia.org/wikipedia/commons/5/5f/Rock-paper-scissors_%28scissors%29.png')
                 }
-        // results.textContent = (playRound(playerSelection, computerSelection));
+        results.textContent = (playRound(playerSelection, computerSelection));
         // playerRunningScore.textContent = `Your score: ${playerScore}`;
         // computerRunningScore.textContent = `Computer score: ${computerScore}`;
     });
